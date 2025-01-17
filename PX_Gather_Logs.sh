@@ -365,7 +365,7 @@ for i in "${!pxctl_commands[@]}"; do
   #echo "Executing: pxctl $cmd"
   $cli -n $namespace $pxcmd $cmd > "$output_file" 2>&1
   echo "Output saved to: $output_file"
-  echo $?
+  echo "Return Code: $?"
 done
 
 
