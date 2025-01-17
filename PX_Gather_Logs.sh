@@ -362,7 +362,7 @@ done
 for i in "${!pxctl_commands[@]}"; do
   cmd="${pxctl_commands[$i]}"
   echo "cmd: $cmd "
-#  output_file="$output_dir/${pxctl_output_files[$i]}"
+  output_file="$output_dir/${pxctl_output_files[$i]}"
   #echo "Executing: pxctl $cmd"
 #  $cli -n $namespace $pxcmd $cmd > "$output_file" 2>&1 || true
 #  echo "Output saved to: $output_file"
