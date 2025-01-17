@@ -168,6 +168,14 @@ if [[ "$option" == "PX" ]]; then
  
  )
 
+ pxctl_commands1=(
+    "status"
+  )
+  pxctl_output_files1=(
+    "px_out/pxctl_status.txt"
+ 
+ )
+
   log_labels=(
     "name=autopilot"
     "name=portworx-api"
@@ -359,10 +367,10 @@ done
 
 # Execute pxctl commands 
 
-for i in "${!pxctl_commands[@]}"; do
-  cmd="${pxctl_commands[$i]}"
+for i in "${!pxctl_commands1[@]}"; do
+  cmd="${pxctl_commands1[$i]}"
   echo "cmd: $cmd "
-  output_file="$output_dir/${pxctl_output_files[$i]}"
+  output_file="$output_dir/${pxctl_output_files1[$i]}"
   #echo "Executing: pxctl $cmd"
   $cli -n $namespace $pxcmd $cmd > "$output_file" 2>&1
 #  echo "Output saved to: $output_file"
