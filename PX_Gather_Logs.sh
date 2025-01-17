@@ -368,7 +368,6 @@ for i in "${!pxctl_commands[@]}"; do
   echo "Return Code: $?"
 done
 
-
 echo "pxctl_commands done"
 # Generating Logs
 for i in "${!log_labels[@]}"; do
