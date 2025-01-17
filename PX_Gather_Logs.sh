@@ -374,7 +374,7 @@ for i in "${!pxctl_commands1[@]}"; do
   #echo "Executing: pxctl $cmd"
   #$cli -n $namespace $pxcmd $cmd > "$output_file" 2>&1
   #$cli -n $namespace exec -it service/portworx-service -- /opt/pwx/bin/pxctl $cmd > "$output_file" 2>&1
-  $cli -n $namespace exec -it service/portworx-service -- /opt/pwx/bin/pxctl $cmd
+  $cli -n $namespace exec -it service/portworx-service
 #  echo "Output saved to: $output_file"
 #  echo "Return Code: $?"
 done
