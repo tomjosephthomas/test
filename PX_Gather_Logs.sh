@@ -165,7 +165,8 @@ if [[ "$option" == "PX" ]]; then
     "px_out/px_volume_list.txt"
     "px_out/px_volume_snapshot.txt"
     "px_out/c_list.txt"
-    )
+ 
+ )
 
   log_labels=(
     "name=autopilot"
