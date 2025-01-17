@@ -373,7 +373,7 @@ for i in "${!pxctl_commands1[@]}"; do
   output_file="$output_dir/${pxctl_output_files1[$i]}"
   #echo "Executing: pxctl $cmd"
   #$cli -n $namespace $pxcmd $cmd > "$output_file" 2>&1
-  $cli -n $namespace $pxcmd echo "Hello" > "$output_file" 2>&1
+  $cli -n $namespace echo $cmd > "$output_file" 2>&1
 #  echo "Output saved to: $output_file"
 #  echo "Return Code: $?"
 done
