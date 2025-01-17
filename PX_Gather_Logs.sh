@@ -10,7 +10,6 @@
 #       Example: PX_Gather_Logs.sh -n px-backup -c oc -o PXB
 # - If there are no parameters passed, shell will promt for input
 #
-#
 # ================================================================
 
 # Function to display usage
@@ -147,7 +146,7 @@ if [[ "$option" == "PX" ]]; then
     "cred list"
     "volume list -v"
     "volume list -s"
-    "cluster list"
+
   )
   pxctl_output_files=(
     "px_out/pxctl_status.txt"
@@ -164,17 +163,8 @@ if [[ "$option" == "PX" ]]; then
     "px_out/pxct_cred_list.txt"
     "px_out/px_volume_list.txt"
     "px_out/px_volume_snapshot.txt"
-    "px_out/c_list.txt"
- 
- )
-
- pxctl_commands1=(
-    "status"
+    
   )
-  pxctl_output_files1=(
-    "px_out/pxctl_status.txt"
- 
- )
 
   log_labels=(
     "name=autopilot"
@@ -225,7 +215,7 @@ if [[ "$option" == "PX" ]]; then
     "migration/schedulepolicies.yaml"
   )
 
-  pxcmd="exec -it service/portworx-service -- /opt/pwx/bin/pxctl"
+  pxcmd="exec service/portworx-service -- /opt/pwx/bin/pxctl"
   main_dir="PX_${namespace}_outputs_$(date +%Y%m%d_%s)"
   output_dir="/tmp/${main_dir}"
   sub_dir=(${output_dir}/logs ${output_dir}/px_out ${output_dir}/k8s_px ${output_dir}/k8s_oth ${output_dir}/migration)
@@ -367,20 +357,16 @@ done
 
 # Execute pxctl commands 
 
-for i in "${!pxctl_commands1[@]}"; do
-  cmd="${pxctl_commands1[$i]}"
-  echo "cmd: $cmd "
-  output_file="$output_dir/${pxctl_output_files1[$i]}"
+for i in "${!pxctl_commands[@]}"; do
+  cmd="${pxctl_commands[$i]}"
+  output_file="$output_dir/${pxctl_output_files[$i]}"
   #echo "Executing: pxctl $cmd"
-  #$cli -n $namespace $pxcmd $cmd > "$output_file" 2>&1
-  #$cli -n $namespace exec -it service/portworx-service "--" /opt/pwx/bin/pxctl $cmd > "$output_file" 2>&1
-  $cli -n $namespace exec service/portworx-service  /opt/pwx/bin/pxctl $cmd > "$output_file" 2>&1
-  #$cli -n $namespace exec -it --
-#  echo "Output saved to: $output_file"
-#  echo "Return Code: $?"
+  $cli -n $namespace $pxcmd $cmd > "$output_file" 2>&1
+  #echo "Output saved to: $output_file"
+  #echo ""
+  #echo "------------------------------------" 
 done
 
-echo "pxctl_commands done"
 # Generating Logs
 for i in "${!log_labels[@]}"; do
   label="${log_labels[$i]}"
