@@ -147,7 +147,6 @@ if [[ "$option" == "PX" ]]; then
     "cred list"
     "volume list -v"
     "volume list -s"
-
   )
   pxctl_output_files=(
     "px_out/pxctl_status.txt"
@@ -164,8 +163,7 @@ if [[ "$option" == "PX" ]]; then
     "px_out/pxct_cred_list.txt"
     "px_out/px_volume_list.txt"
     "px_out/px_volume_snapshot.txt"
-    
-  )
+    )
 
   log_labels=(
     "name=autopilot"
