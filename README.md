@@ -26,6 +26,12 @@ PX_Gather_Logs.sh -n px-backup -c oc -o PXB
 ### Without Parameters
 If no parameters are passed, the script will prompt for input.
 
+### Execute Using Curl
+You can download and execute the script directly from GitHub using the following command:
+```bash
+curl -sL https://github.com/your-repo/PX_Gather_Logs.sh | bash
+```
+
 ---
 
 **Note:**
